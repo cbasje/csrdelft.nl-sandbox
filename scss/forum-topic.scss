@@ -1,0 +1,31 @@
+@import 'base.scss';
+
+//
+// Custom styles
+//
+.img-lid {
+    max-width: 68px;
+
+    img {
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+
+.draad-post {
+    a.lightbox-link {
+        display: block;
+        max-width: 34rem;
+
+        // @extend .ratio;
+        // --bs-aspect-ratio: calc(4 / 3 * 100%);
+
+        img {
+            @extend .rounded;
+
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

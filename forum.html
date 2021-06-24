@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/forum.css" />
+        <title>C.S.R. Delft sandbox</title>
+
+        <meta name="theme-color" content="#192b4b" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="#192b4b" media="(prefers-color-scheme: dark)">
+
+        <script
+            defer
+            src="./node_modules/@fortawesome/fontawesome-free/js/all.js"
+        ></script>
+    </head>
+    <body style="height: 100vh">
+        <header
+            class="
+                navbar
+                sticky-top
+                navbar-expand-md navbar-dark
+                bg-primary
+                border-bottom border-3 border-accent
+            "
+        >
+            <div class="container">
+                <a class="navbar-brand p-0 d-flex align-items-center" href="#">
+                    <img
+                        class="me-2 d-inline-block logo"
+                        src="assets/images/Logo.svg"
+                        alt="C.S.R. Delft logo"
+                    />
+                    C.S.R. Delft
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                    class="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                >
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle active"
+                                aria-current="page"
+                                href="#"
+                            >
+                                Groepen
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#"
+                                >Actueel</a
+                            >
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Forum
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <li>
+                                    <a class="dropdown-item" href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        Another action
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        Something else here
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#">
+                                Communicatie
+                            </a>
+                        </li>
+                    </ul>
+                    <form>
+                        <div class="input-group">
+                            <input
+                                type="text"
+                                placeholder="Zoeken"
+                                class="form-control"
+                                aria-label="Text input with dropdown button"
+                            />
+                            <button
+                                class="btn btn-light dropdown-toggle"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item" href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >Another action</a
+                                    >
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >Something else here</a
+                                    >
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >Separated link</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a
+                                class="
+                                    nav-link
+                                    dropdown-toggle
+                                    d-flex
+                                    align-items-center
+                                    py-1
+                                "
+                                href="#"
+                            >
+                                <div class="img-lid mx-2">
+                                    <div class="ratio ratio-1x1">
+                                        <img
+                                            src="assets/images/person.jpg"
+                                            alt="Person"
+                                        />
+                                    </div>
+                                </div>
+                                <p class="m-0">Am. Lid</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="container-fluid bg-light p-3 h-100 pb-5">
+            <div class="container bg-white rounded p-3">
+                <!-- Header buttons -->
+                <header
+                    class="d-flex justify-content-between align-items-center"
+                >
+                    <h1>Forum</h1>
+
+                    <div class="dropdown d-block d-md-none">
+                        <button
+                            class="btn btn-primary dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            Opties
+                        </button>
+                        <ul
+                            class="dropdown-menu"
+                            aria-labelledby="dropdownMenuButton1"
+                        >
+                            <li>
+                                <a
+                                    class="dropdown-item"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#nieuwDraadjeModal"
+                                >
+                                    <i class="fas fa-plus-circle"></i>
+                                    Nieuw draadje
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                                <a
+                                    class="dropdown-item"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#filterModal"
+                                >
+                                    <i class="fas fa-filter"></i>
+                                    Filter
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="dropdown-item"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#shareModal"
+                                >
+                                    <i class="fas fa-share-alt"></i>
+                                    Delen
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-bell"></i>
+                                    Notificaties
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="btn-toolbar d-none d-md-block"
+                        role="toolbar"
+                        aria-label="Toolbar with button groups"
+                    >
+                        <div
+                            class="btn-group me-2"
+                            role="group"
+                            aria-label="First group"
+                        >
+                            <button
+                                type="button"
+                                class="btn btn-accent text-white"
+                                data-bs-toggle="modal"
+                                data-bs-target="#nieuwDraadjeModal"
+                            >
+                                <i class="fas fa-plus-circle"></i>
+                                Nieuw
+                            </button>
+                        </div>
+
+                        <div
+                            class="btn-group"
+                            role="group"
+                            aria-label="Second group"
+                        >
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#filterModal"
+                            >
+                                <i class="fas fa-filter"></i>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#shareModal"
+                            >
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-primary">
+                                <i class="fas fa-bell"></i>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Nieuw Draadje Modal -->
+                <div
+                    class="modal fade"
+                    id="nieuwDraadjeModal"
+                    tabindex="-1"
+                    aria-labelledby="nieuwDraadjeModalLabel"
+                    aria-hidden="true"
+                >
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5
+                                    class="modal-title"
+                                    id="nieuwDraadjeModalLabel"
+                                >
+                                    Nieuw draadje
+                                </h5>
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                ></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="forumForm" method="POST">
+                                    <div class="mb-3">
+                                        <select
+                                            class="form-select"
+                                            aria-label="Forum deel selecteren"
+                                        >
+                                            <option selected>
+                                                Kies een forum deel
+                                            </option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label
+                                            for="onderwerpTitel"
+                                            class="form-label"
+                                        >
+                                            Titel
+                                        </label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="onderwerpTitel"
+                                            placeholder="Onderwerp titel"
+                                        />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="bericht" class="form-label">
+                                            Bericht
+                                        </label>
+                                        <textarea
+                                            class="form-control"
+                                            id="bericht"
+                                            rows="3"
+                                        ></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                >
+                                    Concept opslaan
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    onclick="submitForm()"
+                                >
+                                    Opslaan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Modal -->
+                <div
+                    class="modal fade"
+                    id="filterModal"
+                    tabindex="-1"
+                    aria-labelledby="filterModalLabel"
+                    aria-hidden="true"
+                >
+                    <div
+                        class="
+                            modal-dialog
+                            modal-dialog-centered
+                            modal-dialog-scrollable
+                        "
+                    >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="filterModalLabel">
+                                    Forum filter
+                                </h5>
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                ></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id="check1"
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for="check1"
+                                    >
+                                        Default checkbox
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id="check2"
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for="check2"
+                                    >
+                                        Default checkbox
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id="check3"
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for="check3"
+                                    >
+                                        Default checkbox
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                >
+                                    Close
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                    Save changes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Share Modal -->
+                <div
+                    class="modal fade"
+                    id="shareModal"
+                    tabindex="-1"
+                    aria-labelledby="shareModalLabel"
+                    aria-hidden="true"
+                >
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="shareModalLabel">
+                                    Deel het forum
+                                </h5>
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                ></button>
+                            </div>
+                            <div class="modal-body">
+                                <ul class="list-group list-group-flush">
+                                    <li
+                                        class="
+                                            list-group-item
+                                            position-relative
+                                        "
+                                    >
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label"
+                                        >
+                                            <i class="fas fa-rss-square"></i>
+                                            RSS feed
+                                        </label>
+                                        <div class="input-group mb-3">
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="exampleFormControlInput1"
+                                                placeholder="RSS feed link"
+                                                value="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                                                aria-label="RSS feed link"
+                                                aria-describedby="button-addon1"
+                                                readonly
+                                            />
+                                            <button
+                                                class="
+                                                    btn btn-outline-secondary
+                                                "
+                                                type="button"
+                                                id="button-addon1"
+                                                onclick="copyLink('exampleFormControlInput1')"
+                                            >
+                                                Kopiëren
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li
+                                        class="
+                                            list-group-item
+                                            position-relative
+                                        "
+                                    >
+                                        <label
+                                            for="exampleFormControlInput2"
+                                            class="form-label"
+                                        >
+                                            <i class="fas fa-link"></i>
+                                            Link
+                                        </label>
+                                        <div class="input-group mb-3">
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="exampleFormControlInput2"
+                                                placeholder="Forum link"
+                                                value="https://www.youtube.com/watch?v=dQw4w9WgXc"
+                                                aria-label="Forum link"
+                                                aria-describedby="button-addon2"
+                                                readonly
+                                            />
+                                            <button
+                                                class="
+                                                    btn btn-outline-secondary
+                                                "
+                                                type="button"
+                                                id="button-addon2"
+                                                onclick="copyLink('exampleFormControlInput2')"
+                                            >
+                                                Kopiëren
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Forum list -->
+                <div class="list-group list-group-flush ps-sm-4">
+                    <a
+                        class="
+                            list-group-item list-group-item-action
+                            px-0
+                            position-relative
+                        "
+                        href="/forum-topic"
+                    >
+                        <span
+                            class="
+                                position-absolute
+                                top-50
+                                start-0
+                                translate-begin
+                            "
+                        >
+                            <i class="fas fa-lock"></i>
+                        </span>
+
+                        <div
+                            class="
+                                d-flex
+                                justify-content-between
+                                align-items-center
+                                ps-24
+                            "
+                        >
+                            <span>
+                                <b>An item</b>
+                                <span
+                                    class="badge bg-secondary text-white mx-1"
+                                >
+                                    C.S.R. Zaken
+                                </span>
+                            </span>
+
+                            <p class="text-black-50 m-0 fw-light">
+                                2 uur geleden
+                            </p>
+                        </div>
+                        <div
+                            class="
+                                d-flex
+                                justify-content-between
+                                align-items-center
+                                ps-24
+                            "
+                        >
+                            <p class="text-black-50 m-0 fw-light">
+                                <span class="text-dark">Am. Faasse:</span> An
+                                item
+                            </p>
+
+                            <span
+                                class="badge rounded-pill bg-accent text-white"
+                            >
+                                1
+                                <span class="visually-hidden">
+                                    ongelezen berichten
+                                </span>
+                            </span>
+                        </div>
+                    </a>
+                    <a
+                        class="
+                            list-group-item list-group-item-action
+                            px-0
+                            position-relative
+                        "
+                        href="/forum-topic"
+                    >
+                        <span
+                            class="
+                                position-absolute
+                                top-50
+                                start-0
+                                translate-begin
+                            "
+                        >
+                            <i class="fas fa-lock"></i>
+                        </span>
+
+                        <div
+                            class="
+                                d-flex
+                                justify-content-between
+                                align-items-center
+                                ps-24
+                            "
+                        >
+                            <span>
+                                <b>An item</b>
+                                <span
+                                    class="badge bg-secondary text-white mx-1"
+                                >
+                                    C.S.R. Zaken
+                                </span>
+                            </span>
+
+                            <p class="text-black-50 m-0 fw-light">
+                                2 uur geleden
+                            </p>
+                        </div>
+                        <div
+                            class="
+                                d-flex
+                                justify-content-between
+                                align-items-center
+                                ps-24
+                            "
+                        >
+                            <p class="text-black-50 m-0 fw-light">
+                                <span class="text-dark">Am. Faasse:</span> An
+                                item
+                            </p>
+
+                            <span
+                                class="badge rounded-pill bg-accent text-white"
+                            >
+                                1
+                                <span class="visually-hidden">
+                                    ongelezen berichten
+                                </span>
+                            </span>
+                        </div>
+                    </a>
+                    <a
+                        class="
+                            list-group-item list-group-item-action
+                            px-0
+                            position-relative
+                        "
+                        href="/forum-topic"
+                    >
+                        <span
+                            class="
+                                position-absolute
+                                top-50
+                                start-0
+                                translate-begin
+                            "
+                        >
+                            <i class="fas fa-lock"></i>
+                        </span>
+
+                        <div
+                            class="
+                                d-flex
+                                justify-content-between
+                                align-items-center
+                                ps-24
+                            "
+                        >
+                            <span>
+                                <b>An item</b>
+                                <span
+                                    class="badge bg-secondary text-white mx-1"
+                                >
+                                    C.S.R. Zaken
+                                </span>
+                            </span>
+
+                            <p class="text-black-50 m-0 fw-light">
+                                2 uur geleden
+                            </p>
+                        </div>
+                        <div
+                            class="
+                                d-flex
+                                justify-content-between
+                                align-items-center
+                                ps-24
+                            "
+                        >
+                            <p class="text-black-50 m-0 fw-light">
+                                <span class="text-dark">Am. Faasse:</span> An
+                                item
+                            </p>
+
+                            <span
+                                class="badge rounded-pill bg-accent text-white"
+                            >
+                                1
+                                <span class="visually-hidden">
+                                    ongelezen berichten
+                                </span>
+                            </span>
+                        </div>
+                    </a>
+                    <a
+                        class="
+                            list-group-item list-group-item-action
+                            px-0
+                            position-relative
+                        "
+                        href="/forum-topic"
+                    >
+                        <span
+                            class="
+                                position-absolute
+                                top-50
+                                start-0
+                                translate-begin
+                            "
+                        >
+                            <i class="fas fa-star"></i>
+                        </span>
+
+                        <div
+                            class="
+                                d-flex
+                                justify-content-between
+                                align-items-center
+                                ps-24
+                            "
+                        >
+                            <span>
+                                <b>An item</b>
+                                <span
+                                    class="badge bg-secondary text-white mx-1"
+                                >
+                                    Zandbak en blætverhalen
+                                </span>
+                            </span>
+
+                            <p class="text-black-50 m-0 fw-light">
+                                2 uur geleden
+                            </p>
+                        </div>
+                        <div
+                            class="
+                                d-flex
+                                justify-content-between
+                                align-items-center
+                                ps-24
+                            "
+                        >
+                            <p class="text-black-50 m-0 fw-light">
+                                <span class="text-dark">Am. Faasse:</span> An
+                                item
+                            </p>
+
+                            <span
+                                class="
+                                    badge
+                                    rounded-pill
+                                    bg-accent
+                                    text-white
+                                    visually-hidden
+                                "
+                            >
+                                0
+                                <span class="visually-hidden"
+                                    >ongelezen berichten</span
+                                >
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Forum pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a
+                                class="page-link"
+                                href="#"
+                                tabindex="-1"
+                                aria-disabled="true"
+                            >
+                                Previous
+                            </a>
+                        </li>
+                        <li class="page-item active" aria-current="page">
+                            <span class="page-link">1</span>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"
+        ></script>
+
+        <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+        <script type="module" src="assets/js/forum.js"></script>
+        <script>
+            // Copy the RSS and forum link
+            function copyLink(inputId) {
+                /* Get the input field */
+                var copyText = document.getElementById(inputId);
+
+                /* Select the text in the input field */
+                copyText.select();
+                copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+                /* Copy the text inside the text field */
+                document.execCommand("copy");
+
+                /* Alert the copied text */
+                alert("Copied the text: " + copyText.value);
+            }
+
+            // When submitting the new draadje form
+            function submitForm() {
+                /* Get the form */
+                var form = document.getElementById("forumForm");
+
+                // Submit it
+                form.submit();
+            }
+        </script>
+    </body>
+</html>

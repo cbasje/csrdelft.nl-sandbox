@@ -1,0 +1,129 @@
+//
+// Bring in Bootstrap
+//
+
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+
+// Customize some defaults
+$primary: #192b4b;
+$secondary: #c4c4c4;
+
+// Import Source Sans Pro font from Google Fonts
+@import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:wght@300;400;900&display=swap);
+// Change the Bootstrap variable to use Source Sans Pro
+$font-family-sans-serif: "Source Sans Pro",
+    // Cross-platform generic font family (default user interface font)
+    system-ui,
+    // Safari for macOS and iOS (San Francisco)
+    -apple-system,
+    // Chrome < 56 for macOS (San Francisco)
+    BlinkMacSystemFont,
+    // Windows
+    "Segoe UI",
+    // Android
+    Roboto,
+    // Basic web fallback
+    "Helvetica Neue",
+    Arial,
+    // Linux
+    "Noto Sans",
+    "Liberation Sans",
+    // Sans serif fallback
+    sans-serif,
+    // Emoji fonts
+    "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+// Add custom colors
+$custom-colors: (
+    "accent": #e59200,
+);
+
+@import "bootstrap/scss/bootstrap";
+
+@import "bootstrap/scss/functions"; // Required
+@import "bootstrap/scss/variables"; // Required
+@import "bootstrap/scss/mixins"; // Required
+
+@import "bootstrap/scss/root"; // Required
+@import "bootstrap/scss/reboot"; // Required
+@import "bootstrap/scss/type";
+// @import "bootstrap/scss/images";
+// @import "bootstrap/scss/code";
+@import "bootstrap/scss/grid";
+// @import "bootstrap/scss/tables";
+// @import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+// @import "bootstrap/scss/dropdown";
+// @import "bootstrap/scss/button-group";
+// @import "bootstrap/scss/input-group"; // Requires forms
+// @import "bootstrap/scss/custom-forms";
+// @import "bootstrap/scss/nav";
+// @import "bootstrap/scss/navbar"; // Requires nav
+// @import "bootstrap/scss/card";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/pagination";
+@import "bootstrap/scss/badge";
+// @import "bootstrap/scss/jumbotron";
+// @import "bootstrap/scss/alert";
+// @import "bootstrap/scss/progress";
+// @import "bootstrap/scss/media";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+// @import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal"; // Requires transitions
+// @import "bootstrap/scss/tooltip";
+@import "bootstrap/scss/popover";
+// @import "bootstrap/scss/carousel";
+// @import "bootstrap/scss/spinners";
+@import "bootstrap/scss/utilities";
+// @import "bootstrap/scss/print";
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Generate `.bg-*` color utilities
+@each $color, $value in $theme-colors {
+    .bg-#{$color} {
+        @include gradient-bg($value);
+    }
+    
+    .btn-#{$color} {
+        @include button-variant($value, $value);
+    }
+    
+    .btn-outline-#{$color} {
+        @include button-outline-variant($value);
+    }
+
+    .border-#{$color} {
+        border-color: $value !important;
+    }
+}
+
+
+//
+// Custom styles
+//
+.navbar-brand img.logo {
+    height: 34px;
+}
+
+.svg-inline--fa {
+    @extend .me-1;
+}
+
+.translate-begin {
+    transform: translate(-150%, -50%) !important;
+    width: 16px;
+}
+
+@media (max-width: 575px) {
+    .translate-begin {
+        transform: translate(0%, -50%) !important;
+    }
+    .ps-24 {
+        padding-left: 24px;
+    }
+}

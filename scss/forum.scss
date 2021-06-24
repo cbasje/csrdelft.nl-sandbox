@@ -1,0 +1,10 @@
+@import 'base.scss';
+
+.img-lid {
+    width: 2rem;
+
+    img {
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
