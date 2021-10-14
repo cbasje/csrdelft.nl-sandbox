@@ -58,3 +58,14 @@
         flex-direction: column;
     }
 }
+
+@include media-breakpoint-only(md) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 2fr 2fr 1fr;
+        grid-template-areas:
+            "agenda posters posters foto-albums"
+            "agenda forum forum verjaardagen"
+            "overig overig civi-saldo is-het-al";
+    }
+}
