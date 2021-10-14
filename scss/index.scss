@@ -1,0 +1,56 @@
+@import "base.scss";
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr 1fr;
+    grid-template-areas:
+        "agenda posters foto-albums civi-saldo"
+        "agenda posters foto-albums verjaardagen"
+        "agenda forum overig verjaardagen"
+        "agenda forum is-het-al verjaardagen";
+    gap: 1rem;
+    min-height: 87vh;
+}
+.cell {
+    // border: 2px solid green;
+}
+
+.cell-posters {
+    grid-area: posters;
+}
+
+.cell-agenda {
+    grid-area: agenda;
+}
+
+.cell-forum {
+    grid-area: forum;
+}
+
+.cell-verjaardagen {
+    grid-area: verjaardagen;
+}
+
+.cell-foto-albums {
+    grid-area: foto-albums;
+}
+
+.cell-overig {
+    grid-area: overig;
+}
+
+.cell-civi-saldo {
+    grid-area: civi-saldo;
+}
+
+.cell-is-het-al {
+    grid-area: is-het-al;
+}
+
+@include media-breakpoint-down(md) {
+    .grid-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
