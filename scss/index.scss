@@ -10,14 +10,13 @@
         "agenda forum overig verjaardagen"
         "agenda forum is-het-al verjaardagen";
     gap: 1rem;
-    min-height: 87vh;
 }
 .cell {
     // border: 2px solid green;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     background-color: #fff;
-    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
-    padding: .5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    padding: 0.5rem;
 }
 
 .cell-posters {
@@ -56,6 +55,12 @@
     .grid-container {
         display: flex;
         flex-direction: column;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .ratio-3x2 {
+        --bs-aspect-ratio: 67%;
     }
 }
 
